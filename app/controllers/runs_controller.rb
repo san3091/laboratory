@@ -1,12 +1,15 @@
 class RunsController < ApplicationController
-  before_action :set_run, only: [:show, :destroy]
-  before_action :set_experiment, only: [:new, :create]
+  before_action :set_run, only: [:show, :destroy, :update, :edit]
+  before_action :set_experiment, only: [:new, :create, :update]
 
   def show
   end
 
   def new
     @run = Run.new
+  end
+
+  def edit
   end
 
   def create
@@ -18,6 +21,18 @@ class RunsController < ApplicationController
         format.json { render :show, status: :created, location: @run }
       else
         format.html { render :new }
+        format.json { render json: @run.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @run.update(run_params)
+        format.html { redirect_to @run.experiment, notice: 'Run was successfully updated.' }
+        format.json { render :show, status: :ok, location: @run}
+      else
+        format.html { render :edit }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
     end

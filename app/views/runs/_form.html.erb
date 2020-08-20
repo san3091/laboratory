@@ -1,4 +1,4 @@
-<%= form_with(model: run, url: experiment_runs_path(experiment), local: true) do |form| %>
+<%= form_with(model: [experiment, run], local: true) do |form| %>
   <% if run.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(run.errors.count, "error") %> prohibited this run from being saved:</h2>
