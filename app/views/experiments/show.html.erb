@@ -5,5 +5,13 @@
   <%= @experiment.title %>
 </p>
 
+<p>
+  <strong>Runs:</strong>
+</p>
+
+<%= render 'runs/runs', runs: @runs %>
+
+<%= link_to 'New Run', new_run_path %>
+
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', experiments_path %>
