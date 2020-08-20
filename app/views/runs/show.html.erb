@@ -8,6 +8,11 @@
   <%= @run.description %>
 </p>
 
+<p>
+  <strong>ID</strong>
+  <%= @run.id%>
+</p>
+
 <%= render 'results/results', results: @results, run: @run %>
 
 <%= link_to 'Edit', edit_run_path(@run) %> |
