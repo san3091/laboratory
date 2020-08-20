@@ -1,17 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <h1>Title:</h1>
   <%= @experiment.title %>
 </p>
 
-<p>
-  <strong>Runs:</strong>
-</p>
-
-<%= render 'runs/runs', runs: @runs %>
-
-<%= link_to 'New Run', new_run_path %>
+<%= render 'runs/runs', runs: @runs, experiment: @experiment %>
 
 <%= link_to 'Edit', edit_experiment_path(@experiment) %> |
 <%= link_to 'Back', experiments_path %>

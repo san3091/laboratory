@@ -10,10 +10,6 @@
   <%= @run.description %>
 </p>
 
-<p>
-  <strong>Run:</strong>
-  <%= @experiment.id%>
-</p>
 
-<%= link_to 'Edit', edit_run_path(@run) %> |
-<%= link_to 'Back', run_path %>
+<%# link_to 'Edit', edit_run_path(@run) %> |
+<%= link_to 'Back', experiment_path(@run.experiment) %>
