@@ -3,6 +3,7 @@ class RunsController < ApplicationController
   before_action :set_experiment, only: [:new, :create, :update]
 
   def show
+    @results = @run.results
   end
 
   def new

@@ -2,12 +2,6 @@ class ResultsController < ApplicationController
   before_action :set_result, only: [:show, :edit, :update, :destroy]
   before_action :set_run, only: [:new, :show]
 
-  # GET /results
-  # GET /results.json
-  def index
-    @results = Result.all
-  end
-
   # GET /results/1
   # GET /results/1.json
   def show
@@ -18,9 +12,9 @@ class ResultsController < ApplicationController
     @result = Result.new
   end
 
-  # GET /results/1/edit
-  def edit
-  end
+  # # GET /results/1/edit
+  # def edit
+  # end
 
   # POST /results
   # POST /results.json
@@ -38,19 +32,19 @@ class ResultsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /results/1
-  # PATCH/PUT /results/1.json
-  def update
-    respond_to do |format|
-      if @result.update(result_params)
-        format.html { redirect_to @result, notice: 'Result was successfully updated.' }
-        format.json { render :show, status: :ok, location: @result }
-      else
-        format.html { render :edit }
-        format.json { render json: @result.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # # PATCH/PUT /results/1
+  # # PATCH/PUT /results/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @result.update(result_params)
+  #       format.html { redirect_to @result, notice: 'Result was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @result }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @result.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /results/1
   # DELETE /results/1.json

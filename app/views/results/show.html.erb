@@ -7,13 +7,7 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @result.data %>
+  <code><%= @result.data %></code>
 </p>
 
-<p>
-  <strong>Run:</strong>
-  <%= @result.run_id %>
-</p>
-
-<%= link_to 'Edit', edit_result_path(@result) %> |
-<%= link_to 'Back', results_path %>
+<%= link_to 'Back', run_path(@result.run) %>
