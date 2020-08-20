@@ -30,7 +30,7 @@ class RunsController < ApplicationController
     end
 
     def set_experiment
-      @experiment = Experiment.find(params[:id])
+      @experiment = Experiment.find(params[:experiment_id])
     end
 
     def run_params

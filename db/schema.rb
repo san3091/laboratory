@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_005125) do
+ActiveRecord::Schema.define(version: 2020_08_20_181926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,24 @@ ActiveRecord::Schema.define(version: 2020_08_20_005125) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "runs", force: :cascade do |t|
+  create_table "results", force: :cascade do |t|
     t.string "uuid"
     t.json "data"
+    t.bigint "run_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "experiment_id"
-    t.index ["experiment_id"], name: "index_runs_on_experiment_id"
+    t.index ["run_id"], name: "index_results_on_run_id"
   end
 
-  add_foreign_key "runs", "experiments"
+  create_table "runs", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.bigint "run_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["run_id"], name: "index_runs_on_run_id"
+  end
+
+  add_foreign_key "results", "runs"
+  add_foreign_key "runs", "runs"
 end

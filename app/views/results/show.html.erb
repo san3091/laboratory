@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @result.uuid %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @result.data %>
+</p>
+
+<p>
+  <strong>Run:</strong>
+  <%= @result.run_id %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>
