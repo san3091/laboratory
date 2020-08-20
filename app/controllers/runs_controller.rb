@@ -14,7 +14,7 @@ class RunsController < ApplicationController
   end
 
   def create
-    @run = Run.new(run_params)
+    @run = @experiment.runs.build(run_params)
 
     respond_to do |format|
       if @run.save
@@ -58,6 +58,6 @@ class RunsController < ApplicationController
     end
 
     def run_params
-      params.require(:run).permit(:title, :description).merge(experiment: @experiment)
+      params.require(:run).permit(:title, :description)
     end
 end
