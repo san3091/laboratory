@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_004655) do
+ActiveRecord::Schema.define(version: 2020_08_20_005125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 2020_08_20_004655) do
     t.json "data"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "experiment_id"
+    t.index ["experiment_id"], name: "index_runs_on_experiment_id"
   end
 
+  add_foreign_key "runs", "experiments"
 end
