@@ -1,6 +1,7 @@
 class ResultsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create]
   before_action :set_result, only: [:show, :edit, :update, :destroy]
-  before_action :set_run, only: [:new, :show]
+  before_action :set_run, only: [:new, :show, :create]
 
   # GET /results/1
   # GET /results/1.json
@@ -19,12 +20,12 @@ class ResultsController < ApplicationController
   # POST /results
   # POST /results.json
   def create
-    @result = @run.results.build(result_params)
+    @result = @run.results.build(uuid: params[:uuid], data: params[:data])
 
     respond_to do |format|
       if @result.save
         # format.html { redirect_to @result, notice: 'Result was successfully created.' }
-        format.json { render :show, status: :created, location: @result }
+        format.json { render :show, status: :created }
       else
         # format.html { render :new }
         format.json { render json: @result.errors, status: :unprocessable_entity }
@@ -66,8 +67,4 @@ class ResultsController < ApplicationController
       @run = Run.find(params[:run_id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def result_params
-      params.require(:result).permit(:uuid, :data)
-    end
 end
