@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :results, except: :index
   end
 
+  get 'runs/:id/download', to: 'runs#download'
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

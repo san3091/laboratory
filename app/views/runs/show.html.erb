@@ -13,6 +13,11 @@
   <%= @run.id%>
 </p>
 
+<p>
+  <strong>CSV file</strong>
+  <%= link_to 'Download CSV', "/runs/#{@run.id}/download"%>
+</p>
+
 <%= render 'results/results', results: @results, run: @run %>
 
 <%= link_to 'Edit', edit_run_path(@run) %> |

@@ -1,5 +1,5 @@
 class RunsController < ApplicationController
-  before_action :set_run, only: [:show, :destroy, :update, :edit]
+  before_action :set_run, only: [:show, :destroy, :update, :edit, :download]
   before_action :set_experiment, only: [:new, :create, :update]
 
   def show
@@ -11,6 +11,10 @@ class RunsController < ApplicationController
   end
 
   def edit
+  end
+
+  def download
+    send_data @run.as_csv, filename: "run-#{@run.id}-results.csv"
   end
 
   def create
