@@ -15,7 +15,7 @@
     <% results.each do |result| %>
       <tr>
         <td><%= result.uuid %></td>
-        <td><code><%= result.data %></code></td>
+        <td><code><%= result.data.as_json %></code></td>
         <td><%= link_to 'Show', run_result_path(@run, result) %></td>
       </tr>
     <% end %>
