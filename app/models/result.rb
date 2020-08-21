@@ -19,7 +19,7 @@ class Result < ApplicationRecord
   end
 
   def headers
-    trials.values.first.keys + system.keys + subject_information.keys
+    trials.values.first.keys + system.keys + subject_information.keys + ["time_in_minutes"]
   end
 
 end
