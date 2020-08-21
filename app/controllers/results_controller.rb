@@ -1,5 +1,6 @@
 class ResultsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :authorized, only: [:create]
   before_action :set_result, only: [:show, :edit, :update, :destroy]
   before_action :set_run, only: [:new, :show, :create]
 
